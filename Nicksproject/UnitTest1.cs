@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace Nicksproject
 {
@@ -7,18 +8,25 @@ namespace Nicksproject
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public static bool IsAnagram(string str1, string str2)
         {
-            int x = 5;
-            int y = 8;
-            if (x > y)
+            int count = 0;
+            int secondCount = 0;
+            bool anagram = false;
+
+            for(int i = 0; i < str1.Length - 1; i++)
             {
-                Console.WriteLine('x');
+                count++;
+                secondCount = str2.Length - 1;
+
+                if(str2.Contains(str1[i]) && count == secondCount)
+                {
+                    anagram = true;
+                }
             }
-            else
-            {
-                Console.WriteLine('y');
-            }
+
+            return anagram;
+            Console.WriteLine(anagram);
         }
     }
 }
